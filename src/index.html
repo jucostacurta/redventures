@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redventures</title>
-</head>
-<body>
-    
-    <select name="" id="">
-        <option value="option-1">option-1</option>
-        <option value="option-2">option-2</option>
-        <option value="option-3">option-3</option>
-    </select>
-    <select name="" id="">
-        <option value="option-1">option-1</option>
-        <option value="option-2">option-2</option>
-        <option value="option-3">option-3</option>
-    </select>
-    <select name="" id="">
-        <option value="option-1">option-1</option>
-        <option value="option-2">option-2</option>
-        <option value="option-3">option-3</option>
-    </select>
-    <script src="../public/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+
+</head>
+
+<body>
+    <select name="" id="sunlight">
+        <option value="Select.." hidden>Select..</option>
+        <option value="high">high</option>
+        <option value="low">low</option>
+        <option value="no">no</option>
+    </select>
+    <select name="" id="water">
+        <option value="Select.." hidden>Select..</option>
+        <option value="daily">daily</option>
+        <option value="regularly">regularly</option>
+        <option value="rarely">rarely</option>
+    </select>
+    <select name="" id="pets">
+        <option value="Select.." hidden>Select..</option>
+        <option value="false">false</option>
+        <option value="true">true</option>
+    </select>
+    <ul id="list"></ul>
+    <script type="text/javascript" src="../public/js/app.js"></script>
 </body>
+
 </html>
