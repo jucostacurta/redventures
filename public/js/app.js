@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/scss/app.scss":
-/*!******************************!*\
-  !*** ./assets/scss/app.scss ***!
-  \******************************/
+/***/ "./resources/assets/scss/app.scss":
+/*!****************************************!*\
+  !*** ./resources/assets/scss/app.scss ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -97,29 +97,26 @@
 
 /***/ }),
 
-/***/ "./src/app.js":
-/*!********************!*\
-  !*** ./src/app.js ***!
-  \********************/
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 console.log('js');
-alert('teste');
-var a = 1;
-alert(a);
 
 /***/ }),
 
 /***/ 0:
-/*!*************************************************!*\
-  !*** multi ./src/app.js ./assets/scss/app.scss ***!
-  \*************************************************/
+/*!********************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/assets/scss/app.scss ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\angel\Desktop\redventures\src\app.js */"./src/app.js");
-module.exports = __webpack_require__(/*! C:\Users\angel\Desktop\redventures\assets\scss\app.scss */"./assets/scss/app.scss");
+__webpack_require__(/*! C:\Users\angel\Desktop\redventures\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\angel\Desktop\redventures\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })
