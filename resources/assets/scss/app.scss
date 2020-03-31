@@ -1,0 +1,178 @@
+@import url("_global.scss");
+
+$path: "/assets/images/";
+$tablet: '768px';
+
+
+.page-header {
+    padding: 62px 0 0;
+    .logo {
+        width: 200px;
+        height: 25px;
+        background: url($path + "logo.svg");
+        text-indent: -1000px;
+        font-size: 0;
+        overflow: hidden;
+    }
+    .title {
+        font-size: 55px;
+        color: #0b2a1e;
+        font-weight: 800;
+        line-height: 60px;
+        margin: 40px 0 65px;
+    }
+}
+.choose-list {
+    display: flex;
+    justify-content: space-between;
+    .card-item {
+        > .icon {
+            width: 105px;
+            height: 75px;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: block;
+            &.-sunlight {
+                background-image: url($path + "icon-sun.svg");
+            }
+            &.-water {
+                background-image: url($path + "icon-water.svg");
+            }
+            &.-pets {
+                background-image: url($path + "icon-pets.svg");
+            }
+        }
+        > .text {
+            font-size: 14px;
+            color: #848484;
+            font-weight: 30;
+            margin: 20px 0;
+        }
+        > .select {
+            width: 220px;
+            color: #a8a8a8;
+            font-size: 14px;
+            border: 1px solid #a8a8a8;
+            border-radius: 15px;
+            appearance: none;
+            padding: 10px 18px;
+            font-family: "Montserrat", sans-serif;
+            background: url($path + "icon-dropdown.png") no-repeat 94% 50%;
+            outline: none;
+            &:hover {
+                border-color: #717171;
+            }
+        }
+        &:hover {
+            .icon {
+                -webkit-animation: iconAnimation 0.3s ease;
+            }
+        }
+    }
+
+}
+@-webkit-keyframes iconAnimation {
+    0% {
+        -webkit-transform:translateY(0);
+    }
+    50% {
+        -webkit-transform:translateY(-5px);
+    }
+    100% {
+        -webkit-transform:translateY(0);
+    }
+}
+.results {
+    margin-top: 80px;
+    min-height: 700px;
+}
+.no-results {
+    padding: 150px 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .wrap-info {
+        > .title {
+            color: #a9a9a9;
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        > .text {
+            color: #a9a9a9;
+            font-size: 16px;
+        }
+    }
+}
+.data-results {
+    padding: 70px 0 40px;
+    .title {
+        color: #0c261c;
+        font-size: 55px;
+        background: url($path + "icon-pick.svg") no-repeat 0 0;
+        padding-top: 100px;
+        margin-bottom: 30px;
+    }
+    > .loading {
+        margin: 30px auto;
+        display: block;
+    }
+    &.animate {
+        .title {
+            -webkit-animation: titleAnimation 0.3s ease;
+        }
+    }
+}
+@-webkit-keyframes titleAnimation {
+    0% {
+        background-position: -160px -10px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+.list-results {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .card-item {
+        background: #ffffff;
+        width: 270px;
+        padding: 32px;
+        margin-bottom: 15px;
+        transition: all .1s;
+        > .thumb {
+            display: block;
+            margin: 0 auto;
+            width: 175px;
+            height: auto;
+        }
+        > .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e6b4e;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        > .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #257556;
+            float: left;
+        }
+        > .list-info {
+            float: right;
+            display: flex;
+            align-items: center;
+            img {
+                margin-left: 5px;
+                display: block;
+            }
+        }
+        &:hover {
+            transition: all .15s;
+            transform: translateY(-5px);
+            box-shadow: 0 3px 0 #e4e4e4;
+        }
+    }
+}

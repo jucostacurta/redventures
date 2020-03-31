@@ -4,32 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redventures</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <title>Green thumb</title>
 </head>
 
 <body>
-    <select name="" id="sunlight">
-        <option value="Select.." hidden>Select..</option>
-        <option value="high">high</option>
-        <option value="low">low</option>
-        <option value="no">no</option>
-    </select>
-    <select name="" id="water">
-        <option value="Select.." hidden>Select..</option>
-        <option value="daily">daily</option>
-        <option value="regularly">regularly</option>
-        <option value="rarely">rarely</option>
-    </select>
-    <select name="" id="pets">
-        <option value="Select.." hidden>Select..</option>
-        <option value="false">false</option>
-        <option value="true">true</option>
-    </select>
-    <ul id="list"></ul>
-    <script type="text/javascript" src="../public/js/app.js"></script>
+    <div class="content">
+        <header class="page-header">
+            <h1 class="logo">green thumb</h1>
+            <h2 class="title">Find your next <br />green friend</h2>
+        </header>
+        <ul class="choose-list">
+            <li class="card-item">
+                <i class="icon -sunlight"></i>
+                <h3 class="text"><b>1.</b> Set the amount of <b>sunlight</b> <br />your plant will get.</h3>
+                <select class="select" id="sunlight">
+                    <option value="Select.." hidden>Select..</option>
+                    <option value="high">high</option>
+                    <option value="low">low</option>
+                    <option value="no">no</option>
+                </select>
+            </li>
+            <li class="card-item">
+                <i class="icon -water"></i>
+                <h3 class="text"><b>2.</b> How often do you want to <br /><b>water</b> your plant?</h3>
+                <select class="select" id="water">
+                    <option value="Select.." hidden>Select..</option>
+                    <option value="daily">daily</option>
+                    <option value="regularly">regularly</option>
+                    <option value="rarely">rarely</option>
+                </select>
+            </li>
+            <li class="card-item">
+                <i class="icon -pets"></i>
+                <h3 class="text"><b>3.</b> Do you have pets? Do <br />they <b>chew</b> plants? </h3>
+                <select class="select" id="pets">
+                    <option value="Select.." hidden>Select..</option>
+                    <option value="false">false</option>
+                    <option value="true">true</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="bg-grey" id="scroll">
+        <div class="content results">
+            <div class="no-results" id="no-results">
+                <div class="wrap-info">
+                    <h4 class="title">No results yet…</h4>
+                    <p class="text">Use the filters above to find <br />
+                        the plant that best fits your <br />
+                        environment :)
+                    </p>
+                </div>
+                <img class="image" alt="" src="/assets/images/no-results.svg" alt="">
+            </div>
+            <div class="data-results -hide" id="data-results">
+                <h4 class="title">Our picks for you</h4>
+                <img src="/assets/images/loading.svg" class="loading" alt="">
+                <ul class="list-results -hide" id="list"></ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/app.js"></script>
 </body>
 
 </html>

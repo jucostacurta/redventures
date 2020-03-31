@@ -2114,7 +2114,7 @@ process.umask = function() { return 0; };
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-var allSelects = document.querySelectorAll('select');
+var allSelects = document.querySelectorAll('.select');
 
 for (i = 0; i < allSelects.length; ++i) {
   allSelects[i].addEventListener('change', function () {
@@ -2134,9 +2134,11 @@ function requestAPI() {
   }
 
   if (!selectUnchanged) {
+    loading();
     var sun = document.querySelector('#sunlight').value,
         water = document.querySelector('#water').value,
         pets = false;
+    console.log("https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=".concat(sun, "&water=").concat(water, "&pets=").concat(pets));
     axios.get("https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=".concat(sun, "&water=").concat(water, "&pets=").concat(pets)).then(function (response) {
       data = response.data;
       fillList(data);
@@ -2146,12 +2148,21 @@ function requestAPI() {
   }
 }
 
-function fillList() {
-  var appendElement = document.getElementById('list');
+function loading() {
+  document.querySelector('#scroll').scrollIntoView();
+  document.querySelector('#no-results').classList.add('-hide');
+  document.querySelector('#data-results').classList.remove('-hide');
+  document.querySelector('#data-results').classList.add('animate');
+}
+
+function fillList(data) {
+  var appendElement = document.querySelector('#list');
   appendElement.innerHTML = "";
   data.forEach(function (element, index) {
-    list = "<li>\n                    <h1>".concat(element.name, "</h1>\n                    <img src=\"").concat(element.url, "\">\n                    <p>Sun: ").concat(element.sun, "</p>\n                    <p>Water: ").concat(element.water, "</p>\n                    <p>Toxicity: ").concat(element.toxicity, "</p>\n                </li>");
+    list = "<li class=\"card-item\">\n                    <img class=\"thumb\" src=\"".concat(element.url, "\">\n                    <h4 class=\"name\">").concat(element.name, "</h4>\n                    <p class=\"price\">$").concat(element.price, "</p>\n                    <div class=\"list-info\">\n                        <img src=\"/assets/images/pet-").concat(element.toxicity, ".svg\">\n                        <img src=\"/assets/images/sun-").concat(element.sun, ".svg\">\n                        <img src=\"/assets/images/water-").concat(element.water, ".svg\">\n                    </div>\n                </li>");
     appendElement.insertAdjacentHTML('beforeend', list);
+    appendElement.classList.remove('-hide');
+    document.querySelector('.loading').classList.add('-hide');
   });
 }
 
