@@ -12,15 +12,13 @@ for (i = 0; i < allSelects.length; ++i) {
 function requestAPI() {
     selectUnchanged = false;
     for (i = 0; i < allSelects.length; ++i) {
-        console.log(allSelects[i].selectedIndex);
         if ((allSelects[i].selectedIndex == 0)) {
             selectUnchanged = true
+            break
         }
         else {
             selectUnchanged = false
-            console.log('passa')
         }
-        console.log('final > ' +selectUnchanged)
     }
     if (!selectUnchanged) {
         loading()
