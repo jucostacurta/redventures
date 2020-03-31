@@ -2114,7 +2114,8 @@ process.umask = function() { return 0; };
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-var allSelects = document.querySelectorAll('.select');
+var allSelects = document.querySelectorAll('.select'),
+    btnTop = document.querySelector('#btn');
 
 for (i = 0; i < allSelects.length; ++i) {
   allSelects[i].addEventListener('change', function () {
@@ -2126,11 +2127,16 @@ function requestAPI() {
   selectUnchanged = false;
 
   for (i = 0; i < allSelects.length; ++i) {
+    console.log(allSelects[i].selectedIndex);
+
     if (allSelects[i].selectedIndex == 0) {
       selectUnchanged = true;
     } else {
       selectUnchanged = false;
+      console.log('passa');
     }
+
+    console.log('final > ' + selectUnchanged);
   }
 
   if (!selectUnchanged) {
@@ -2138,7 +2144,6 @@ function requestAPI() {
     var sun = document.querySelector('#sunlight').value,
         water = document.querySelector('#water').value,
         pets = false;
-    console.log("https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=".concat(sun, "&water=").concat(water, "&pets=").concat(pets));
     axios.get("https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=".concat(sun, "&water=").concat(water, "&pets=").concat(pets)).then(function (response) {
       data = response.data;
       fillList(data);
@@ -2161,10 +2166,14 @@ function fillList(data) {
   data.forEach(function (element, index) {
     list = "<li class=\"card-item\">\n                    <img class=\"thumb\" src=\"".concat(element.url, "\">\n                    <h4 class=\"name\">").concat(element.name, "</h4>\n                    <p class=\"price\">$").concat(element.price, "</p>\n                    <div class=\"list-info\">\n                        <img src=\"/assets/images/pet-").concat(element.toxicity, ".svg\">\n                        <img src=\"/assets/images/sun-").concat(element.sun, ".svg\">\n                        <img src=\"/assets/images/water-").concat(element.water, ".svg\">\n                    </div>\n                </li>");
     appendElement.insertAdjacentHTML('beforeend', list);
-    appendElement.classList.remove('-hide');
+    document.querySelector("#list-results").classList.remove('-hide');
     document.querySelector('.loading').classList.add('-hide');
   });
 }
+
+btnTop.addEventListener("click", function () {
+  window.scroll(0, 0);
+});
 
 /***/ }),
 

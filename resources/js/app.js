@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-let allSelects = document.querySelectorAll('.select');
+let allSelects = document.querySelectorAll('.select'),
+    btnTop = document.querySelector('#btn');
 
 for (i = 0; i < allSelects.length; ++i) {
     allSelects[i].addEventListener('change', () => {
@@ -11,12 +12,15 @@ for (i = 0; i < allSelects.length; ++i) {
 function requestAPI() {
     selectUnchanged = false;
     for (i = 0; i < allSelects.length; ++i) {
+        console.log(allSelects[i].selectedIndex);
         if ((allSelects[i].selectedIndex == 0)) {
             selectUnchanged = true
         }
         else {
             selectUnchanged = false
+            console.log('passa')
         }
+        console.log('final > ' +selectUnchanged)
     }
     if (!selectUnchanged) {
         loading()
@@ -24,7 +28,6 @@ function requestAPI() {
             water = document.querySelector('#water').value,
             pets = false;
 
-            console.log(`https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=${sun}&water=${water}&pets=${pets}`)
         axios.get(`https://6nrr6n9l50.execute-api.us-east-1.amazonaws.com/default/front-plantTest-service?sun=${sun}&water=${water}&pets=${pets}`)
             .then(function (response) {
                 data = response.data
@@ -56,8 +59,12 @@ function fillList(data) {
                     </div>
                 </li>`
         appendElement.insertAdjacentHTML('beforeend', list);
-        appendElement.classList.remove('-hide')
+        document.querySelector("#list-results").classList.remove('-hide')
         document.querySelector('.loading').classList.add('-hide')
 
     });
 }
+
+btnTop.addEventListener("click", function(){
+    window.scroll(0,0)
+})
