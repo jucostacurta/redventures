@@ -2118,9 +2118,7 @@ var allSelects = document.querySelectorAll('.select'),
     btnTop = document.querySelector('#btn');
 
 for (i = 0; i < allSelects.length; ++i) {
-  allSelects[i].addEventListener('change', function () {
-    requestAPI();
-  });
+  addListener(allSelects[i], 'change', requestAPI);
 }
 
 function requestAPI() {
@@ -2167,9 +2165,17 @@ function fillList(data) {
   });
 }
 
-btnTop.addEventListener("click", function () {
-  window.scroll(0, 0);
-});
+function addListener(element, type, func, funcParams) {
+  element.addEventListener(type, function () {
+    func(funcParams);
+  });
+}
+
+function scrollTo(x, y) {
+  window.scroll(x, y);
+}
+
+addListener(btnTop, "click", scrollTo.bind(this, 0, 0));
 
 /***/ }),
 

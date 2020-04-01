@@ -4,10 +4,9 @@ let allSelects = document.querySelectorAll('.select'),
     btnTop = document.querySelector('#btn');
 
 for (i = 0; i < allSelects.length; ++i) {
-    allSelects[i].addEventListener('change', () => {
-        requestAPI()
-    });
+    addListener(allSelects[i], 'change', requestAPI)
 }
+
 
 function requestAPI() {
     selectUnchanged = false;
@@ -37,10 +36,10 @@ function requestAPI() {
     }
 }
 function loading() {
-  document.querySelector('#scroll').scrollIntoView();
-  document.querySelector('#no-results').classList.add('-hide')
-  document.querySelector('#data-results').classList.remove('-hide')
-  document.querySelector('#data-results').classList.add('animate')
+    document.querySelector('#scroll').scrollIntoView();
+    document.querySelector('#no-results').classList.add('-hide')
+    document.querySelector('#data-results').classList.remove('-hide')
+    document.querySelector('#data-results').classList.add('animate')
 }
 function fillList(data) {
     let appendElement = document.querySelector('#list')
@@ -62,7 +61,16 @@ function fillList(data) {
 
     });
 }
+function addListener(element, type, func, funcParams) {
+    element.addEventListener(type, function () {
+        func(funcParams)
+    })
+}
 
-btnTop.addEventListener("click", function(){
-    window.scroll(0,0)
-})
+function scrollTo(x, y) {
+    window.scroll(x, y);
+}
+
+addListener(btnTop, "click", scrollTo.bind(this, 0, 0))
+
+
